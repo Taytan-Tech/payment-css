@@ -10,18 +10,6 @@
  * or simply saving the live output of GET /pelecard-skin/taytan-en.css.
  * ==========================================================================*/
 
-/* ============================================================================
- * Frozen reference copy of Pelecard's own hosted stylesheet:
- *   https://gateway20.pelecard.biz/Content/Css/variant-en-4.css
- *
- * Not edited directly — this is only the base layer that
- * src/api/pelecardUtils.ts's `/pelecard-skin/taytan-en.css` preview route
- * concatenates with ../taytan-pelecard-overrides.css, so we can preview and
- * serve "what Pelecard should end up hosting" from our own server before they
- * actually host it. Edit ../taytan-pelecard-overrides.css instead; re-fetch
- * this file from Pelecard only if they change their own base stylesheet.
- * ==========================================================================*/
-
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -369,7 +357,7 @@ select {
 
 .topRef {
   padding: 10px 0;
-  background: #f5f5f5;
+  background: #ddd;
   font-size: 11px;
   width: 100%;
 }
@@ -1841,6 +1829,7 @@ button:focus {
 .footer {
   background: transparent;
   padding: 18px 0 4px;
+  border-radius: 0.25rem;
 }
 
 .footer.centerBG {
