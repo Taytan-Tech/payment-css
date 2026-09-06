@@ -381,9 +381,11 @@ select {
 
 #total_currency {
 }
-
-h1#paymentByCC {
+#paymentHeader {
   display: none;
+}
+h1#paymentByCC {
+  color: var(--tp-accent);
 }
 
 .credit-title .logo {
@@ -1560,7 +1562,7 @@ body {
 
 @media (max-width: 480px) {
   .container {
-    padding: 16px 10px 24px;
+    padding: 6px;
   }
 
   .main-content {
@@ -1582,7 +1584,7 @@ body {
  * one is configured. */
 .credit-title {
   margin: 0;
-  padding: 20px 0 4px;
+  padding: 0;
   background: var(--tp-page-bg);
 }
 
@@ -1731,8 +1733,8 @@ button:focus {
   border: 1px solid var(--tp-accent-soft-strong);
   background: var(--tp-accent-soft);
   border-radius: var(--tp-radius-lg);
-  padding: 18px 20px;
-  margin: 22px 0;
+  padding: 5px 20px;
+  margin: 0;
 }
 
 #totalAll {
