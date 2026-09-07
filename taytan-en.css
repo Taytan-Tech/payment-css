@@ -382,7 +382,8 @@ select {
 #total_currency {
 }
 #paymentHeader {
-  display: none;
+  /* display: none; */
+  padding-top: 12px;
 }
 h1#paymentByCC {
   color: var(--tp-accent);
@@ -1512,6 +1513,14 @@ p.block_ui_cancel_gama {
  * already reliably self-hosted by the base stylesheet; a payment page is the
  * wrong place to add a second external font dependency for a cosmetic match.
  *
+ * Sized for iframe embedding: this form is meant to sit inside a host page's
+ * own iframe, not stand alone as a full page. So it drops the floating-card
+ * treatment (background/shadow/rounded corners around .main-content) that
+ * made sense standalone but reads as a redundant nested box inside a frame,
+ * narrows the max-width so it doesn't assume full-page real estate, and
+ * trims paddings/control heights/font sizes a notch so more of the form is
+ * visible without scrolling in a modest-height iframe.
+ *
  * Terminal: <FILL IN PRODUCTION TERMINAL #>
  * ==========================================================================*/
 
@@ -1538,27 +1547,30 @@ p.block_ui_cancel_gama {
 }
 
 /* ---- Page + form shell ---------------------------------------------------- */
-/* The form becomes one floating card on a soft page background, matching the
- * wizard's card treatment instead of Pelecard's flat white-on-white. */
+/* Flat and transparent, not a card: inside an iframe the host page already
+ * supplies the surrounding background/border, so a second floating card here
+ * would just nest a box inside a box. `.container`'s own max-width also caps
+ * how wide the iframe content assumes it can be. */
 
 body {
-  background: var(--tp-page-bg);
+  background: transparent;
+}
+
+.container {
+  max-width: 440px;
 }
 
 /* `.container` is reused by Pelecard's own markup in three separate, unrelated
  * places (the SSL bar, the credit-title header, and the wrapper around
  * .main-content) — a bare `.container` rule here would pad all three.
- * `.main .container` reaches only the one that actually wraps the card. */
+ * `.main .container` reaches only the one that actually wraps the form. */
 .main .container {
-  padding-top: 32px;
-  padding-bottom: 40px;
+  padding-top: 12px;
+  padding-bottom: 16px;
 }
 
 .main-content {
-  background: var(--tp-paper);
-  border-radius: var(--tp-radius-lg);
-  box-shadow: var(--tp-shadow-card);
-  padding: 28px 26px 8px;
+  padding: 8px 4px 4px;
 }
 
 @media (max-width: 480px) {
@@ -1567,10 +1579,7 @@ body {
   }
 
   .main-content {
-    border-radius: var(--tp-radius-md);
-    padding: 20px 16px 4px;
-    box-shadow: none;
-    border: 1px solid var(--tp-rule);
+    padding: 6px 2px 4px;
   }
 }
 
@@ -1639,7 +1648,7 @@ h2#top_text {
 
 .control-label {
   color: var(--tp-ink-soft);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.01em;
 }
@@ -1649,21 +1658,21 @@ h2#top_text {
 }
 
 .form-group {
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 
 .form-control {
   border: 1.5px solid var(--tp-rule-strong);
   border-radius: var(--tp-radius-sm);
   background: var(--tp-paper);
-  padding: 8px 12px;
-  height: 40px;
+  padding: 6px 10px;
+  height: 34px;
   color: var(--tp-ink);
   box-shadow: none;
 }
 
 select.form-control {
-  height: 40px;
+  height: 34px;
 }
 
 .form-control:hover {
@@ -1733,20 +1742,23 @@ button:focus {
 #totalAllRow {
   border: 1px solid var(--tp-accent-soft-strong);
   background: var(--tp-accent-soft);
-  border-radius: var(--tp-radius-lg);
-  padding: 5px 20px;
+  border-radius: var(--tp-radius-md);
+  padding: 4px 16px;
   margin: 0;
 }
 
 #totalAll {
   color: var(--tp-accent-dark);
-  font-size: 30px;
+  font-size: 22px;
   font-weight: 700;
 }
 
 /* ---- Payment method tabs ----------------------------------------------------- */
 
 .tab-button.pay-btn {
+  width: 72px;
+  height: 72px;
+  padding: 8px 4px;
   background: var(--tp-paper);
   border: 1.5px solid var(--tp-rule);
   border-radius: var(--tp-radius-md);
@@ -1783,6 +1795,8 @@ button:focus {
 
 .btn-submit,
 .btn-paypal {
+  height: 46px;
+  font-size: 18px;
   background: linear-gradient(
     180deg,
     var(--tp-accent) 0%,
@@ -1818,6 +1832,7 @@ button:focus {
 }
 
 #cancelBtn {
+  height: 46px;
   background: transparent;
   border: 1.5px solid var(--tp-rule-strong);
   border-radius: var(--tp-radius-md);
