@@ -428,6 +428,7 @@ h1#paymentByCC {
 }
 
 .footer.centerBG {
+  display: none;
   max-width: 780px;
   margin: 0 auto;
   border-radius: 15px;
