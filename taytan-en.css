@@ -399,8 +399,9 @@ h1#paymentByCC {
 .credit-title-1.clearfix {
   justify-content: center;
   align-items: center;
+  display: flex;
+  flex-direction: column;
 }
-
 .credit-title .logo img {
   max-width: 100%;
 }
