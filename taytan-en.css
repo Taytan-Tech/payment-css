@@ -324,19 +324,14 @@ select {
 }
 
 .container {
-  max-width: 780px;
-  padding: 0 15px;
+  max-width: 90%;
+  padding: 1px 10px;
   margin: 0 auto;
 }
 
 .main {
   border: 0;
   width: auto;
-  margin: 0 auto;
-}
-
-.main-content {
-  position: relative;
   margin: 0 auto;
 }
 
@@ -429,10 +424,10 @@ h1#paymentByCC {
 }
 
 .footer.centerBG {
-  display: none;
-  max-width: 780px;
+  background: #1350910a;
   margin: 0 auto;
   border-radius: 15px;
+  box-shadow: none;
 }
 
 .footer-title {
@@ -440,7 +435,7 @@ h1#paymentByCC {
   color: #000000;
   font-size: 16px;
   font-weight: 700;
-  margin: 15px 0;
+  margin: 1px 0.25px;
 }
 
 .footer-title:empty {
@@ -455,10 +450,6 @@ h1#paymentByCC {
   border: solid 2px #12284c;
   padding: 10px 15px;
   border-radius: 15px;
-}
-
-.form-group {
-  margin-bottom: 12px;
 }
 
 .form-group-submit {
@@ -501,9 +492,9 @@ h1#paymentByCC {
 }
 
 label.control-label img {
-  margin: 0 5px;
-  width: 5px !important;
-  height: 5px !important;
+  margin: 0.5px 4px;
+  width: 5.5px !important;
+  height: 5.5px !important;
 }
 
 .control-label {
@@ -581,6 +572,7 @@ span.form-control {
   display: flex;
   flex-direction: column;
   width: 100%;
+  align-items: stretch;
 }
 
 #TotalAndFreeTotalRow .control-group {
@@ -1072,38 +1064,6 @@ button#cmdPinpad {
   display: none;
 }
 
-.sup-in-ic-1 {
-  background-image: url("../Images/Visa.png");
-}
-
-.sup-in-ic-2 {
-  background-image: url("../Images/Mastercard.png");
-}
-
-.sup-in-ic-3 {
-  background-image: url("../Images/Amex.png");
-}
-
-.sup-in-ic-4 {
-  background-image: url("../Images/Diners.png");
-}
-
-.sup-in-ic-5 {
-  background-image: url("../Images/israCard.png");
-}
-
-.sup-lg-ic-1 {
-  background-image: url("../Images/pci.png");
-}
-
-.sup-lg-ic-2 {
-  background-image: url("../Images/thawte.png");
-}
-
-.sup-lg-ic-3 {
-  background-image: url("../Images/pelecards.png");
-}
-
 .form-group-sup-2 .form-group-sup-in > a {
   width: 30%;
   margin: 0 1%;
@@ -1556,10 +1516,6 @@ body {
   background: transparent;
 }
 
-.container {
-  max-width: 440px;
-}
-
 /* `.container` is reused by Pelecard's own markup in three separate, unrelated
  * places (the SSL bar, the credit-title header, and the wrapper around
  * .main-content) — a bare `.container` rule here would pad all three.
@@ -1570,19 +1526,15 @@ body {
 }
 
 .main-content {
-  padding: 8px 4px 4px;
+  padding: 2px 1px 1px;
+  position: relative;
+  margin: 0 auto;
 }
-
 @media (max-width: 480px) {
   .container {
     padding: 6px;
   }
-
-  .main-content {
-    padding: 6px 2px 4px;
-  }
 }
-
 /* ---- Header ---------------------------------------------------------------- */
 
 /* .credit-title is a full-width bar OUTSIDE .main-content (a sibling, not a
@@ -1658,7 +1610,8 @@ h2#top_text {
 }
 
 .form-group {
-  margin-bottom: 12px;
+  margin: 1px 0.5px;
+  margin-bottom: 0.8rem;
 }
 
 .form-control {
@@ -1851,7 +1804,9 @@ button:focus {
 }
 
 .footer.centerBG {
-  border-radius: 0;
+  background: #1350910a;
+  margin: 0 auto;
+  border-radius: 0.5rem;
   box-shadow: none;
 }
 
@@ -1927,6 +1882,13 @@ button:focus {
   display: none;
 }
 
+@media (min-width: 400px) {
+  .form-group-sup,
+  .form-group-sup-2 {
+    display: block;
+  }
+}
+
 /* ---- Scrollbar ------------------------------------------------------------------ */
 /* Thin, on-brand scrollbar for the few places this form scrolls internally
  * (#order_details, .dropdown-content) instead of the platform's bulky
@@ -1950,4 +1912,35 @@ button:focus {
 
 *::-webkit-scrollbar-thumb:hover {
   background-color: var(--tp-accent-dark);
+}
+.sup-in-ic-1 {
+  background-image: url("https://gateway21.pelecard.biz/Content/Images/Visa.png");
+}
+
+.sup-in-ic-2 {
+  background-image: url("https://gateway21.pelecard.biz/Content/Images/Mastercard.png");
+}
+
+.sup-in-ic-3 {
+  background-image: url("https://gateway21.pelecard.biz/Content/Images/Amex.png");
+}
+
+.sup-in-ic-4 {
+  background-image: url("https://gateway21.pelecard.biz/Content/Images/Diners.png");
+}
+
+.sup-in-ic-5 {
+  background-image: url("https://gateway21.pelecard.biz/Content/Images/israCard.png");
+}
+
+.sup-lg-ic-1 {
+  background-image: url("https://gateway21.pelecard.biz/Content/Images/pci.png");
+}
+
+.sup-lg-ic-2 {
+  background-image: url("https://gateway21.pelecard.biz/Content/Images/thawte.png");
+}
+
+.sup-lg-ic-3 {
+  background-image: url("https://gateway21.pelecard.biz/Content/Images/pelecards.png");
 }
