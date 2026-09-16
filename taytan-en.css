@@ -843,6 +843,13 @@ button#cmdPinpad {
   font-weight: 700;
 }
 
+#first_payment_input[readonly] {
+  background-color: #f5f5f5;
+  color: #888;
+  cursor: not-allowed;
+  border-color: #ddd;
+}
+
 #paymentAllRow .ext:before,
 #downPaymentRow .ext:before {
   content: "";
